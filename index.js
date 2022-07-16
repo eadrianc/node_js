@@ -7,6 +7,8 @@ const app = express()
 const sequelize = new Sequelize({ dialect: 'sqlite', storage: './task-list.db' })
 const tasks = Task(sequelize, DataTypes)
 
+
+app.use(express.urlencoded())
 // We need to parse JSON coming from requests
 app.use(express.json())
 
@@ -21,9 +23,10 @@ const allTasks = await tasks.findAll()
 
 
 app.post("/tasks", async (req, res) => {
-  const taskId = req.params.id
-      await tasks.create({description: "description", done: "done"})
-  res.json({tasks})
+ // const taskId = req.params.id
+ console.log(req.body)
+      await tasks.create({description: req.body.description, done: req.body.done})
+  res.json({"ID": this.lastID})
 })
 
 // Show task
