@@ -38,16 +38,21 @@ app.get('/tasks/:id', async (req, res) => {
 })
 
 // Update task
-app.put('/tasks/:id', (req, res) => {
+app.put('/tasks/:id', async (req, res) => {
   const taskId = req.params.id
-
+  const body = req.body
+  const findtask = await tasks.findByPk(taskId)
+  findtask.update({
+    description: body.description, done: body.done
+  })
   res.send({ action: 'Updating task', taskId: taskId })
 })
 
 // Delete task
-app.delete('/tasks/:id', (req, res) => {
+app.delete('/tasks/:id', async (req, res) => {
   const taskId = req.params.id
-
+   const destroytask = await tasks.findByPk(taskId)
+   destroytask.destroy()
   res.send({ action: 'Deleting task', taskId: taskId })
 })
 
