@@ -1,13 +1,9 @@
-# Exercícico NodeJS
+# Exercício Node.js de TOTI: Lista de Tarefas ✍
 
-O servidor express e Sqlite3 são executados utilizando o NodeJS instalados no seu computador.
+Você pode:
+  -  Olear as novas tarefas com `GET`
+  - Criar sua próxima tarefa usando `POST`
+  - Atualizar sua task com `UPDATE`
+  - Apagar uma tarefa com `DELETE`
 
-## Iniciando o projeto
-
-- `npm install`
-- `npm run dev`
-
-## Rode as migrações
-
-- Rodando as migrações de banco de dados: `npx sequelize-cli db:migrate`
-- Criando registros com seeds: `npx sequelize-cli db:seed:all`
+Feito pelo [Edgar ](https://github.com/eadrianc "Edgar ") e [Andy](https://github.com/AndyReinoza "Andy")
